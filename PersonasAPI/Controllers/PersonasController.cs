@@ -159,8 +159,45 @@ namespace PersonasAPI.Controllers
 
         // DELETE api/<PersonasController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<ApiResponse> Delete(int id)
         {
+            try
+            {
+                _personaService.DeletePersona(id);
+                var result = new ApiResponse()
+                {                   
+                    Message = "Ok",
+                    State = true
+                };
+
+                return new OkObjectResult(result);
+            }
+            catch (ResourceNotFoundException)
+            {
+
+                var result = new ApiResponse()
+                {
+                    Message = "Not Found",
+                    State = false
+                };
+
+                return new NotFoundObjectResult(result);
+            }
+            catch (Exception e)
+            {
+
+                var result = new ApiResponse()
+                {
+
+                    Message = e.Message,
+                    State = true
+                };
+
+                return new ObjectResult(result)
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
         }
     }
 }

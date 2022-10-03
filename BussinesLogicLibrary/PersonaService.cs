@@ -96,6 +96,22 @@ namespace BussinesLogicLibrary
 
         }
 
+        public void DeletePersona(int id)
+        {
+
+            var persona = _context.Personas                
+                .SingleOrDefault(p => p.Id == id);
+
+            if (persona == null)
+            {
+                throw new ResourceNotFoundException();
+            }
+
+            _context.Personas.Remove(persona);
+            _context.SaveChanges();
+
+        }
+
 
 
     }
