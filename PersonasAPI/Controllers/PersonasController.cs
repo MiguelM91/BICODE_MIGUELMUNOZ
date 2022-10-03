@@ -1,4 +1,5 @@
 ﻿using BussinesLogicLibrary;
+using BussinesLogicLibrary.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using PersonasAPI.Response;
@@ -36,9 +37,44 @@ namespace PersonasAPI.Controllers
 
         // GET api/<PersonasController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<ApiResponse> Get(int id)
         {
-            return "value";
+            try
+            {
+                var persona = _personaService.GetPersona(id);
+                var result = new ApiResponse()
+                {
+                    Result = persona,
+                    Message = "Ok",
+                    State = true
+                };
+
+                return new OkObjectResult(result);
+            }
+            catch (ResourceNotFoundException)
+            {
+
+                var result = new ApiResponse()
+                {
+                    Message = "Not Found",
+                    State = false
+                };
+
+                return new NotFoundObjectResult(result);
+            }
+            catch (Exception e) {
+                
+                var result = new ApiResponse()
+                {
+                    
+                    Message = e.Message,
+                    State = true
+                };
+
+                return new ObjectResult(result) {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
         }
 
         // POST api/<PersonasController>

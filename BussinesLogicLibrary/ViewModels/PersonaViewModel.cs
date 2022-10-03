@@ -17,5 +17,7 @@ namespace BussinesLogicLibrary.ViewModels
 
         public virtual DocumentoViewModel? Documento { get; set; }
         public virtual GeneroViewModel? Genero { get; set; }
+
+        public string? Clasificacion { get; set; }
     }
 }

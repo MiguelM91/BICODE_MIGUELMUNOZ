@@ -1,0 +1,15 @@
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\bin\Debug\net6.0\BussinesLogicLibrary.deps.json
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\bin\Debug\net6.0\BussinesLogicLibrary.dll
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\bin\Debug\net6.0\BussinesLogicLibrary.pdb
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\bin\Debug\net6.0\DataAccessLibrary.dll
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\bin\Debug\net6.0\DataAccessLibrary.pdb
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.csproj.AssemblyReference.cache
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.AssemblyInfoInputs.cache
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.AssemblyInfo.cs
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.csproj.CopyComplete
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.dll
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\refint\BussinesLogicLibrary.dll
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\BussinesLogicLibrary.pdb
+C:\Users\Miguel\source\repos\BICODE_MIGUELMJNOZ\BussinesLogicLibrary\obj\Debug\net6.0\ref\BussinesLogicLibrary.dll

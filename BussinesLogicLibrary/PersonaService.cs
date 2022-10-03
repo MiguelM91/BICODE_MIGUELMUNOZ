@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BussinesLogicLibrary.Exceptions;
 using BussinesLogicLibrary.ViewModels;
 using DataAccessLibrary;
 using DataAccessLibrary.Entities;
@@ -21,12 +22,36 @@ namespace BussinesLogicLibrary
         public List<PersonaViewModel> GetPersonas()
         {
 
-            var personas = _context.Personas.Include("IdDocumentoNavigation").Include("IdGeneroNavigation").ToList();
+            var personas = _context.Personas
+                .Include("IdDocumentoNavigation")
+                .Include("IdGeneroNavigation")
+                .ToList();
 
             var result = _mapper.Map<List<Persona>, List<PersonaViewModel>>(personas);
 
             return result;
         }
+
+
+        public PersonaViewModel GetPersona(int id)
+        {
+
+            var persona = _context.Personas
+                .Include("IdDocumentoNavigation")
+                .Include("IdGeneroNavigation")
+                .SingleOrDefault(p => p.Id == id);
+
+            if (persona == null) {
+                throw new ResourceNotFoundException();
+            }
+                
+
+            var result = _mapper.Map<Persona, PersonaViewModel>(persona);
+
+            return result;
+        }
+
+
 
     }
 }

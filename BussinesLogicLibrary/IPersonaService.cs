@@ -11,5 +11,6 @@ namespace BussinesLogicLibrary
     public interface IPersonaService
     {
         List<PersonaViewModel> GetPersonas();
+        PersonaViewModel GetPersona(int id);
     }
 }
