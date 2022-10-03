@@ -12,5 +12,7 @@ namespace BussinesLogicLibrary
     {
         List<PersonaViewModel> GetPersonas();
         PersonaViewModel GetPersona(int id);
+
+        PersonaViewModel CreatePersona(PersonaInputViewModel personaInput);
     }
 }

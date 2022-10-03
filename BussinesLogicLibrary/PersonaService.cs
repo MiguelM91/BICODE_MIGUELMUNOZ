@@ -51,6 +51,22 @@ namespace BussinesLogicLibrary
             return result;
         }
 
+        public PersonaViewModel CreatePersona(PersonaInputViewModel personaInput) {
+
+            var personaEntity = _mapper.Map<PersonaInputViewModel, Persona>(personaInput);
+            personaEntity.FechaCreacion = DateTime.Now;
+            personaEntity.FechaActualizacion = DateTime.Now;
+
+            _context.Personas.Add(personaEntity);
+            _context.SaveChanges();
+
+            var result = _mapper.Map<Persona, PersonaViewModel>(personaEntity);
+
+            return result;
+
+
+        }
+
 
 
     }

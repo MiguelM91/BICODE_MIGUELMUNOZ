@@ -50,7 +50,7 @@ namespace DataAccessLibrary
 
             modelBuilder.Entity<Persona>(entity =>
             {
-                entity.ToTable("Persona");
+                entity.ToTable("Persona");                
 
                 entity.Property(e => e.Apellido).HasMaxLength(200);
 

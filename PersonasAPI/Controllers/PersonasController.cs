@@ -1,5 +1,6 @@
 ﻿using BussinesLogicLibrary;
 using BussinesLogicLibrary.Exceptions;
+using BussinesLogicLibrary.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using PersonasAPI.Response;
@@ -79,8 +80,37 @@ namespace PersonasAPI.Controllers
 
         // POST api/<PersonasController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<ApiResponse> Post([FromBody] PersonaInputViewModel personaInput)
         {
+            try
+            {
+                var persona = _personaService.CreatePersona(personaInput);
+                var result = new ApiResponse()
+                {
+                    Result = persona,
+                    Message = "Ok",
+                    State = true
+                };
+
+                return new OkObjectResult(result);
+            }
+            
+            catch (Exception e)
+            {
+
+                var result = new ApiResponse()
+                {
+
+                    Message = e.Message,
+                    State = true
+                };
+
+                return new ObjectResult(result)
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
+
         }
 
         // PUT api/<PersonasController>/5

@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace BussinesLogicLibrary.Mappers
 {
-    public class MappingSetup: Profile
+    public class MappingSetup : Profile
     {
         public MappingSetup()
         {
             ConfigureMappingFromEntitiesToViewModels();
+            ConfigureMappingFromViewModelsToEntities();
+
         }
 
         private void ConfigureMappingFromEntitiesToViewModels()
@@ -21,17 +23,20 @@ namespace BussinesLogicLibrary.Mappers
             CreateMap<Persona, PersonaViewModel>()
                 .ForMember(d => d.Documento, s => s.MapFrom(src => src.IdDocumentoNavigation))
                 .ForMember(d => d.Genero, s => s.MapFrom(src => src.IdGeneroNavigation))
-                .ForMember(d => d.Clasificacion, s => s.MapFrom((x,d) => {               
+                .ForMember(d => d.Clasificacion, s => s.MapFrom((x, d) =>
+                {
 
 
 
-                    if (x.FechaNacimiento != null) {
+                    if (x.FechaNacimiento != null)
+                    {
                         var age = 0;
 
                         age = DateTime.Now.Subtract(x.FechaNacimiento.Value).Days;
                         age = age / 365;
 
-                        if (age <= 14) {
+                        if (age <= 14)
+                        {
                             return "Niño";
                         }
 
@@ -51,13 +56,22 @@ namespace BussinesLogicLibrary.Mappers
                         }
 
                     }
-                    
+
                     return "NA";
-                    
-                }  ));
+
+                }));
             CreateMap<Documento, DocumentoViewModel>();
             CreateMap<Genero, GeneroViewModel>();
 
+        }
+
+        private void ConfigureMappingFromViewModelsToEntities()
+        {
+            CreateMap<PersonaInputViewModel, Persona>()
+                .ForMember(d => d.FechaActualizacion, s => s.Ignore())
+                .ForMember(d => d.FechaCreacion, s => s.Ignore())
+                .ForMember(d => d.IdDocumentoNavigation, s => s.Ignore())
+                .ForMember(d => d.IdGeneroNavigation, s => s.Ignore());
         }
     }
 }
