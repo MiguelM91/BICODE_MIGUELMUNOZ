@@ -14,5 +14,7 @@ namespace BussinesLogicLibrary
         PersonaViewModel GetPersona(int id);
 
         PersonaViewModel CreatePersona(PersonaInputViewModel personaInput);
+
+        PersonaViewModel UpdatePersona(PersonaInputViewModel personaInput, int id);
     }
 }

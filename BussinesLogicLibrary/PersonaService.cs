@@ -67,6 +67,35 @@ namespace BussinesLogicLibrary
 
         }
 
+        public PersonaViewModel UpdatePersona(PersonaInputViewModel personaInput, int id)
+        {
+
+            var persona = _context.Personas
+                .SingleOrDefault(p => p.Id == id);
+
+            if (persona == null)
+            {
+                throw new ResourceNotFoundException();
+            }
+
+            persona.IdDocumento = personaInput.IdDocumento;
+            persona.IdGenero = personaInput.IdGenero;
+            persona.NumeroDocumento = personaInput.NumeroDocumento;
+            persona.FechaNacimiento = personaInput.FechaNacimiento;
+            persona.Nombre = personaInput.Nombre;
+            persona.Apellido = personaInput.Apellido;        
+            persona.FechaActualizacion = DateTime.Now;
+
+      
+            _context.SaveChanges();
+
+            var result = _mapper.Map<Persona, PersonaViewModel>(persona);
+
+            return result;
+
+
+        }
+
 
 
     }
